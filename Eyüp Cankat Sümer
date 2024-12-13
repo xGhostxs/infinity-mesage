@@ -1,0 +1,22 @@
+import pyautogui
+import time
+import threading
+
+stop_thread = False
+
+def mesage():
+    while not stop_thread:
+        pyautogui.write("Enter whatever you want")
+        pyautogui.press('enter')
+        time.sleep(0)
+        
+def stop():
+    global stop_thread
+    input("Press Enter to stop...")
+    stop_thread = True
+
+thread = threading.Thread(target=mesage)
+thread.start()
+
+
+stop()
